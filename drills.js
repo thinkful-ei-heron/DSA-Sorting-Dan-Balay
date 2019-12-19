@@ -530,4 +530,8 @@ function splitList(list, start, end) {
   return newList;
 }
 
-console.log(display(sortLinkedList(LL)));
+//console.log(display(sortLinkedList(LL)));
+
+
+
+
