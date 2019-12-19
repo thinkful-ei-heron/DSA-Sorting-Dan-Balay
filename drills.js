@@ -279,7 +279,6 @@ let arr = [
 
 //console.log(quickSort(arr));
 
-
 //# 4 implement mergesort
 
 function mSort(array) {
@@ -303,8 +302,7 @@ function merge(left, right, array) {
   while (leftIndex < left.length && rightIndex < right.length) {
     if (left[leftIndex] < right[rightIndex]) {
       array[outputIndex++] = left[leftIndex++];
-    }
-    else {
+    } else {
       array[outputIndex++] = right[rightIndex++];
     }
   }
@@ -340,8 +338,7 @@ class LinkedList {
   insertLast(item) {
     if (this.head === null) {
       this.insertFirst(item);
-    }
-    else {
+    } else {
       let tempNode = this.head;
       while (tempNode.next !== null) {
         tempNode = tempNode.next;
@@ -350,22 +347,21 @@ class LinkedList {
     }
   }
 
-  find(item) { 
+  find(item) {
     // Start at the head
     let currNode = this.head;
     // If the list is empty
     if (!this.head) {
       return null;
     }
-    // Check for the item 
+    // Check for the item
     while (currNode.value !== item) {
       /* Return null if it's the end of the list 
                and the item is not on the list */
       if (currNode.next === null) {
         return null;
-      }
-      else {
-        // Otherwise, keep looking 
+      } else {
+        // Otherwise, keep looking
         currNode = currNode.next;
       }
     }
@@ -373,7 +369,7 @@ class LinkedList {
     return currNode;
   }
 
-  remove(item){ 
+  remove(item) {
     // If the list is empty
     if (!this.head) {
       return null;
@@ -388,8 +384,8 @@ class LinkedList {
     // Keep track of previous
     let previousNode = this.head;
 
-    while ((currNode !== null) && (currNode.value !== item)) {
-      // Save the previous node 
+    while (currNode !== null && currNode.value !== item) {
+      // Save the previous node
       previousNode = currNode;
       currNode = currNode.next;
     }
@@ -405,7 +401,6 @@ class LinkedList {
     let tempNode = new _Node(currNode.value, currNode.next);
     currNode.value = item;
     currNode.next = tempNode;
-
   }
 
   insertAfter(key, item) {
@@ -413,7 +408,6 @@ class LinkedList {
     let tempNode = new _Node(item, currNode.next);
     tempNode.next = currNode.next;
     currNode.next = tempNode;
-
   }
 
   insertAt(position, item) {
@@ -424,7 +418,6 @@ class LinkedList {
     let tempNode = new _Node(currNode.value, currNode.next);
     currNode.value = item;
     currNode.next = tempNode;
-
   }
 }
 
@@ -442,7 +435,7 @@ function size(ll) {
 function display(ll) {
   console.log('_________________Linked list:_____________________');
   let currNode = ll.head;
-  while(currNode.next !== null){
+  while (currNode.next !== null) {
     console.log(currNode.value);
     currNode = currNode.next;
   }
@@ -450,14 +443,12 @@ function display(ll) {
 }
 
 function middleOfList(position, ll) {
-  
   let currNode = ll.head;
   for (let i = 0; i < position; i++) {
     currNode = currNode.next;
   }
 
   return currNode;
-      
 }
 
 let LL = new LinkedList();
@@ -471,8 +462,6 @@ LL.insertLast(1);
 LL.insertLast(100);
 LL.insertLast(29);
 LL.insertLast(33);
-
-
 
 function sortLinkedList(list) {
   const sizeList = size(list);
@@ -498,8 +487,7 @@ function mergeList(left, right) {
     if (leftCurrNode.value < rightCurrNode.value) {
       newList.insertLast(leftCurrNode.value);
       leftCurrNode = leftCurrNode.next;
-    }
-    else {
+    } else {
       newList.insertLast(rightCurrNode.value);
       rightCurrNode = rightCurrNode.next;
     }
@@ -530,4 +518,20 @@ function splitList(list, start, end) {
   return newList;
 }
 
-console.log(display(sortLinkedList(LL)));
+//console.log(display(sortLinkedList(LL)));
+
+// 7.
+function randomize(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let rand = Math.floor(Math.random() * arr.length);
+    swap(arr, i, rand);
+  }
+
+  return arr;
+  //console.log(rand);
+}
+
+console.log(randomize([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+
+// 8.
+//Just use quicksort since you can evaluate strings with comparison operators
